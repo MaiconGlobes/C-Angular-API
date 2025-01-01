@@ -49,7 +49,7 @@
       [ngTemplateOutlet]="formError"
       [ngTemplateOutletContext]="{
         validation: 'required',
-        message: 'Fullname is required',
+        message: 'O nome completo é obrigatório',
         control: registrationForm.controls['fullname']
       }"
     ></ng-container>
@@ -57,7 +57,7 @@
       [ngTemplateOutlet]="formError"
       [ngTemplateOutletContext]="{
         validation: 'minlength',
-        message: 'Fullname should have at least 3 symbols',
+        message: 'O nome completo deve ter pelo menos 3 símbolos',
         control: registrationForm.controls['fullname']
       }"
     ></ng-container>
@@ -91,7 +91,7 @@
       [ngTemplateOutlet]="formError"
       [ngTemplateOutletContext]="{
         validation: 'required',
-        message: 'Email is required',
+        message: 'Email é requerido',
         control: registrationForm.controls['email']
       }"
     ></ng-container>
@@ -99,7 +99,7 @@
       [ngTemplateOutlet]="formError"
       [ngTemplateOutletContext]="{
         validation: 'email',
-        message: 'Email is invalid',
+        message: 'O e-mail é inválido',
         control: registrationForm.controls['email']
       }"
     ></ng-container>
@@ -107,7 +107,7 @@
       [ngTemplateOutlet]="formError"
       [ngTemplateOutletContext]="{
         validation: 'minlength',
-        message: 'Email should have at least 3 symbols',
+        message: 'O e-mail deve ter pelo menos 3 caracteres',
         control: registrationForm.controls['email']
       }"
     ></ng-container>
@@ -141,7 +141,7 @@
       [ngTemplateOutlet]="formError"
       [ngTemplateOutletContext]="{
         validation: 'required',
-        message: 'Password is required',
+        message: 'A senha é obrigatória',
         control: registrationForm.controls['password']
       }"
     ></ng-container>
@@ -149,7 +149,7 @@
       [ngTemplateOutlet]="formError"
       [ngTemplateOutletContext]="{
         validation: 'minlength',
-        message: 'Password should have at least 3 symbols',
+        message: 'A senha deve ter pelo menos 3 caracteres',
         control: registrationForm.controls['password']
       }"
     ></ng-container>
@@ -185,7 +185,7 @@
       [ngTemplateOutlet]="formError"
       [ngTemplateOutletContext]="{
         validation: 'required',
-        message: 'Confirm Password is required',
+        message: 'Confirmar senha é obrigatório',
         control: registrationForm.controls['cPassword']
       }"
     ></ng-container>
@@ -193,7 +193,7 @@
       [ngTemplateOutlet]="formError"
       [ngTemplateOutletContext]="{
         validation: 'minlength',
-        message: 'Confirm Password should have at least 3 symbols',
+        message: 'Confirm A senha deve ter pelo menos 3 caracteres',
         control: registrationForm.controls['cPassword']
       }"
     ></ng-container>

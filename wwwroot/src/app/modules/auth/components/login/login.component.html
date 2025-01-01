@@ -21,17 +21,6 @@
   </div>
   <!--end::Heading-->
 
-  <!-- begin::Alert info-->
-  <ng-container *ngIf="!hasError">
-    <div class="mb-10 bg-light-info p-8 rounded">
-      <div class="text-info">
-        Usar conta <strong>{{ defaultAuth.email }}</strong> e senha
-        <strong>{{ defaultAuth.password }}</strong> para continuar.
-      </div>
-    </div>
-  </ng-container>
-  <!-- end::Alert info-->
-
   <!-- begin::Alert error-->
   <ng-container *ngIf="hasError">
     <div class="mb-lg-15 alert alert-danger">
@@ -60,7 +49,7 @@
       [ngTemplateOutlet]="formError"
       [ngTemplateOutletContext]="{
         validation: 'required',
-        message: 'Email is required',
+        message: 'E-mail é requerido',
         control: loginForm.controls['email']
       }"
     ></ng-container>
@@ -68,7 +57,7 @@
       [ngTemplateOutlet]="formError"
       [ngTemplateOutletContext]="{
         validation: 'email',
-        message: 'Email is invalid',
+        message: 'E-mail é inválido',
         control: loginForm.controls['email']
       }"
     ></ng-container>
@@ -76,7 +65,7 @@
       [ngTemplateOutlet]="formError"
       [ngTemplateOutletContext]="{
         validation: 'minLength',
-        message: 'Email should have at least 3 symbols',
+        message: 'O e-mail deve ter pelo menos 3 símbolos',
         control: loginForm.controls['email']
       }"
     ></ng-container>
@@ -84,7 +73,7 @@
       [ngTemplateOutlet]="formError"
       [ngTemplateOutletContext]="{
         validation: 'maxLength',
-        message: 'Email should have maximum 360 symbols',
+        message: 'O e-mail deve ter no máximo 360 símbolos',
         control: loginForm.controls['email']
       }"
     ></ng-container>
@@ -122,7 +111,7 @@
       [ngTemplateOutlet]="formError"
       [ngTemplateOutletContext]="{
         validation: 'required',
-        message: 'Password is required',
+        message: 'A senha é obrigatória',
         control: loginForm.controls['password']
       }"
     ></ng-container>
@@ -130,7 +119,7 @@
       [ngTemplateOutlet]="formError"
       [ngTemplateOutletContext]="{
         validation: 'minlength',
-        message: 'Password should have at least 3 symbols',
+        message: 'A senha deve ter pelo menos 3 caracteres',
         control: loginForm.controls['password']
       }"
     ></ng-container>
@@ -138,7 +127,7 @@
       [ngTemplateOutlet]="formError"
       [ngTemplateOutletContext]="{
         validation: 'maxLength',
-        message: 'Password should have maximum 100 symbols',
+        message: 'A senha deve ter no máximo 100 caracteres',
         control: loginForm.controls['password']
       }"
     ></ng-container>
