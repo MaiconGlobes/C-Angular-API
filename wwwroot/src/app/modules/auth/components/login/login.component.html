@@ -8,9 +8,9 @@
 >
   <!--begin::Heading-->
   <div class="text-center mb-10">
-    <h1 class="text-dark mb-3">Sign In to Metronic</h1>
+    <h1 class="text-dark mb-3">Faça login</h1>
     <div class="text-gray-400 fw-bold fs-4">
-      New Here?
+      Novo por aqui?
       <a
         routerLink="/auth/registration"
         id="kt_login_signup"
@@ -25,8 +25,8 @@
   <ng-container *ngIf="!hasError">
     <div class="mb-10 bg-light-info p-8 rounded">
       <div class="text-info">
-        Use account <strong>{{ defaultAuth.email }}</strong> and password
-        <strong>{{ defaultAuth.password }}</strong> to continue.
+        Usar conta <strong>{{ defaultAuth.email }}</strong> e senha
+        <strong>{{ defaultAuth.password }}</strong> para continuar.
       </div>
     </div>
   </ng-container>
@@ -36,7 +36,7 @@
   <ng-container *ngIf="hasError">
     <div class="mb-lg-15 alert alert-danger">
       <div class="alert-text font-weight-bold">
-        The login details are incorrect
+        Os detalhes de login estão incorretos
       </div>
     </div>
   </ng-container>
@@ -44,7 +44,7 @@
 
   <!--begin::Form group-->
   <div class="fv-row mb-10">
-    <label class="form-label fs-6 fw-bolder text-dark">Email</label>
+    <label class="form-label fs-6 fw-bolder text-dark">E-mail</label>
     <input
       class="form-control form-control-lg form-control-solid"
       type="email"
@@ -95,14 +95,14 @@
   <div class="fv-row mb-10">
     <div class="d-flex justify-content-between mt-n5">
       <div class="d-flex flex-stack mb-2">
-        <label class="form-label fw-bolder text-dark fs-6 mb-0">Password</label>
+        <label class="form-label fw-bolder text-dark fs-6 mb-0">Senha</label>
         <a
           routerLink="/auth/forgot-password"
           class="link-primary fs-6 fw-bolder"
           id="kt_login_forgot"
           [style.margin-left]="'5px'"
         >
-          Forgot Password ?
+        Esqueceu sua senha?
         </a>
       </div>
     </div>
@@ -162,31 +162,9 @@
         </span>
       </ng-container>
       <ng-container *ngIf="!(isLoading$ | async)">
-        <span class="indicator-label">Continue</span>
+        <span class="indicator-label">Continuar</span>
       </ng-container>
     </button>
-
-    <!-- begin::Separator  -->
-    <div class="text-center text-muted text-uppercase fw-bolder mb-5">or</div>
-    <!-- end::Separator  -->
-
-    <a
-      class="
-        btn btn-flex
-        flex-center
-        btn-light btn-lg
-        w-100
-        mb-5
-        cursor-pointer
-      "
-    >
-      <img
-        class="h-20px me-3"
-        src="./assets/media/svg/brand-logos/google-icon.svg"
-      />
-
-      Continue with Google
-    </a>
   </div>
   <!--end::Action-->
 </form>
