@@ -1,0 +1,18 @@
+{
+   "ConnectionStrings": {
+      "SecretKeyToken": "Secret abcdefghijklmnopqrstuvxyz0123456789",
+      "SecretKeyPassword": "x1",
+      "MySQLConnection": "Server=localhost;Database=dotnet;Uid=root;Pwd=root;",
+      "MySQL5Connection": "Server=localhost;Database=dotnet;Uid=root;Pwd=root",
+      "DocsSwagger": "https://docs.scalar.com/project-default/version-default/guide-default/page-default"
+   },
+   "Logging": {
+      "LogLevel": {
+         "Default": "Information",
+         "Microsoft.AspNetCore": "Warning",
+         "Microsoft": "Warning",
+         "Microsoft.Hosting.Lifetime": "Information"
+      }
+   },
+   "AllowedHosts": "*"
+}

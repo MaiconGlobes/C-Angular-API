@@ -1,0 +1,87 @@
+using Microsoft.EntityFrameworkCore.Migrations;
+
+namespace BasicBI.NETAPI.Migrations
+{
+   public partial class triggers : Migration
+   {
+      protected override void Up(MigrationBuilder migrationBuilder)
+      {
+         migrationBuilder.Sql(@"
+            CREATE TRIGGER before_insert_address
+				BEFORE INSERT ON endereco
+				FOR EACH ROW
+				BEGIN
+					DECLARE msg VARCHAR(255);
+					IF EXISTS (
+						SELECT 1 
+						FROM endereco 
+						WHERE (pessoa_id = NEW.pessoa_id AND numero = NEW.numero AND cep = NEW.cep)
+					) THEN
+						SET msg = CONCAT('Endereço com número [', NEW.numero, '] e CEP [', NEW.cep, '] já cadastrado');
+						SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
+					END IF;
+				END;
+				");
+
+         migrationBuilder.Sql(@"
+            CREATE TRIGGER before_insert_client
+				BEFORE INSERT ON cliente
+				FOR EACH ROW
+				BEGIN
+					DECLARE msg VARCHAR(255);
+					IF EXISTS (
+						SELECT 1 
+						FROM cliente 
+						WHERE pessoa_id = NEW.pessoa_id 
+					) THEN
+						SET msg = CONCAT('O cliente com id [', NEW.pessoa_id,'] já cadastrado');
+						SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
+					END IF;
+				END;
+				");
+
+         migrationBuilder.Sql(@"
+				CREATE TRIGGER before_insert_user
+				BEFORE INSERT ON usuario
+				FOR EACH ROW
+				BEGIN
+					DECLARE msg VARCHAR(255);
+					IF EXISTS (
+						SELECT 1 
+						FROM usuario 
+						WHERE (pessoa_id = NEW.pessoa_id AND email = NEW.email)
+							OR (email = NEW.email)
+					) THEN
+						SET msg = CONCAT('O usuário com id [', NEW.pessoa_id,'] já cadastrado');
+						SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
+					END IF;
+				END;
+				");
+
+         migrationBuilder.Sql(@"
+				CREATE TRIGGER before_insert_person
+				BEFORE INSERT ON pessoa
+				FOR EACH ROW
+				BEGIN
+					DECLARE msg VARCHAR(255);
+					IF EXISTS (
+						SELECT 1 
+						FROM pessoa 
+						WHERE cpf_cnpj = NEW.cpf_cnpj 
+					) THEN
+						SET msg = CONCAT('O contato com cpf/cnpj [', NEW.cpf_cnpj,'] já cadastrado');
+						SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
+					END IF;
+				END;
+				");
+      }
+
+      protected override void Down(MigrationBuilder migrationBuilder)
+      {
+         migrationBuilder.Sql("DROP TRIGGER IF EXISTS before_insert_address;");
+         migrationBuilder.Sql("DROP TRIGGER IF EXISTS before_insert_client;");
+         migrationBuilder.Sql("DROP TRIGGER IF EXISTS before_insert_user;");
+         migrationBuilder.Sql("DROP TRIGGER IF EXISTS before_insert_person;");
+      }
+   }
+}
